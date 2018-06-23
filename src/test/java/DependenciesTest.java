@@ -1,10 +1,7 @@
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.core.importer.ImportOption;
-import com.tngtech.archunit.junit.AnalyzeClasses;
-import com.tngtech.archunit.junit.ArchUnitRunner;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
@@ -26,6 +23,9 @@ public class DependenciesTest {
 				.should()
 				.accessClassesThat()
 				.resideOutsideOfPackages(
+						// This line helps with the enum issue:
+						// https://github.com/TNG/ArchUnit/issues/81
+						"",
 						"java..",
 						"..package1..",
 						"..package2..")

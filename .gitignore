@@ -1,6 +1,12 @@
+# Generated files
 out/
-.gradle
+build/
 
+# Gradle generated files
+.gradle/
+
+# IntelliJ files
+.idea/
 *.ipr
 *.iml
 *.iws
